@@ -2,154 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Angel Advocacy – Preview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Angel Advocacy Association</title>
+  <meta name="description" content="Empowering voices, protecting rights, and advocating for justice." />
   <meta name="theme-color" content="#2B3A55" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
-  <style>
-    /* ======= Brand Variables ======= */
-    :root{
-      --bg:#f7f9fc; --surface:#ffffff; --text:#1f2937; --muted:#64748b;
-      --brand:#2B3A55; --brand-600:#243247; --brand-700:#1d293e;
-      --accent:#FFDD57; --sky:#6CA2EA;
-      --radius:14px; --ring:3px solid rgba(108,162,234,.45);
-      --shadow-sm:0 4px 10px rgba(0,0,0,.06);
-      --shadow-md:0 10px 24px rgba(0,0,0,.08);
-      --font-ui:"Inter",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
-      --font-serif:"Merriweather",Georgia,serif;
-    }
-
-    /* ======= Reset / Base ======= */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-ui);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1140px;margin-inline:auto;padding-inline:1.25rem}
-
-    /* Focus */
-    :focus-visible{outline:none;box-shadow:0 0 0 3px #fff,0 0 0 6px var(--sky);border-radius:8px}
-
-    /* ======= Header / Nav ======= */
-    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);
-      background: color-mix(in oklab, #ffffff 75%, transparent);border-bottom:1px solid rgba(0,0,0,.06)}
-    .navbar{display:flex;align-items:center;justify-content:space-between;min-height:64px}
-    .brand{display:flex;align-items:center;gap:.65rem;font-weight:700}
-    .nav-links{display:flex;gap:1.25rem;align-items:center;margin:0;padding:0;list-style:none}
-    .nav-links a[data-underline]{position:relative;padding:.25rem .1rem}
-    .nav-links a[data-underline]::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:linear-gradient(90deg,var(--sky),var(--accent));transition:right .25s ease}
-    .nav-links a[data-underline]:hover::after{right:0}
-
-    .nav-toggle{display:none;background:none;border:0}
-    .hamburger,.hamburger::before,.hamburger::after{width:22px;height:2px;background:var(--text);display:block;position:relative;border-radius:1px}
-    .hamburger::before,.hamburger::after{content:"";position:absolute;left:0}
-    .hamburger::before{top:-6px}.hamburger::after{top:6px}
-
-    @media (max-width: 840px){
-      .nav-toggle{display:block}
-      .nav-links{position:absolute;inset-inline:0;top:64px;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);
-        flex-direction:column;align-items:flex-start;padding:1rem 1.25rem;gap:.75rem;transform-origin:top;
-        transform:scaleY(0);opacity:0;pointer-events:none;transition:.2s ease}
-      .nav-links[data-open="true"]{transform:scaleY(1);opacity:1;pointer-events:auto}
-    }
-
-    /* ======= Buttons ======= */
-    .btn{
-      --btn-bg:#ffffff; --btn-fg:var(--brand-700); --btn-b:#e5e7eb;
-      display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-      padding:.8rem 1.1rem;border-radius:12px;font-weight:700;border:1px solid var(--btn-b);
-      box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .08s ease, background .2s ease, box-shadow .2s ease
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn:active{transform:translateY(0) scale(.98)}
-    .btn--small{padding:.55rem .8rem;font-weight:600}
-    .btn--primary{--btn-bg:var(--brand);--btn-fg:#fff;--btn-b:transparent;background:linear-gradient(180deg,color-mix(in oklab, var(--brand) 90%, #fff), var(--brand-700));color:var(--btn-fg)}
-    .btn--ghost{background:transparent;border:1.5px solid var(--brand);color:var(--brand)}
-    .btn--primary:hover{box-shadow:0 8px 20px rgba(43,58,85,.22)}
-
-    /* ======= Hero ======= */
-    .hero{position:relative;overflow:hidden;color:#0b1020;
-      background: radial-gradient(1200px 600px at 10% -10%, #dfe8ff 10%, transparent 60%),
-                  radial-gradient(900px 500px at 120% 20%, #fff4cc 10%, transparent 60%),
-                  #f6f8ff}
-    .hero-bg .blob{position:absolute;border-radius:50%;filter:blur(28px);opacity:.55;transform:translateZ(0)}
-    .blob-1{width:420px;height:420px;background:#c3d9ff;top:-80px;left:-80px;animation:float 14s ease-in-out infinite}
-    .blob-2{width:340px;height:340px;background:#ffe47a;bottom:-80px;right:-80px;animation:float 18s ease-in-out infinite reverse}
-    .blob-3{width:260px;height:260px;background:#b0e2ff;top:40%;left:60%;animation:float 16s ease-in-out infinite}
-    @keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-14px) translateX(10px)}}
-
-    .hero .hero-content{padding:6.5rem 1.25rem 5rem;text-align:center}
-    .display{font-family:var(--font-serif);font-weight:700;font-size:clamp(2.2rem,3.8vw,3.2rem);letter-spacing:.2px;margin:0}
-    .lead{max-width:720px;margin:.9rem auto 1.4rem;color:var(--muted);font-size:1.125rem}
-    .hero-cta{display:flex;gap:.75rem;justify-content:center;margin-top:.5rem}
-    .trust-badges{list-style:none;display:flex;gap:1.25rem;justify-content:center;margin:1.1rem 0 0;color:#334155;font-weight:600;padding:0}
-    .trust-badges li{background:#fff;border:1px solid #e6e8ee;border-radius:999px;padding:.45rem .8rem;box-shadow:var(--shadow-sm)}
-
-    /* ======= Sections / Cards ======= */
-    .section{padding:3.5rem 0}
-    .section-alt{background:linear-gradient(180deg,#f4f7ff,#ffffff)}
-    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:stretch}
-    @media (max-width:960px){.grid-2{grid-template-columns:1fr}}
-
-    .card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow-md);border:1px solid #edf0f6;padding:1.25rem}
-    .metrics{list-style:none;padding:0;margin:.75rem 0 0;display:grid;gap:.5rem}
-    .metrics strong{font-size:1.35rem;color:var(--brand)}
-
-    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem}
-    @media (max-width:960px){.cards{grid-template-columns:1fr}}
-    .card.service h3{margin:.25rem 0 .35rem}
-    .link-arrow{font-weight:700;color:var(--brand);position:relative}
-    .link-arrow::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--accent);transition:width .2s ease}
-    .link-arrow:hover::after{width:100%}
-
-    /* ======= Forms ======= */
-    .form label{display:block;font-weight:600;margin-bottom:.5rem}
-    .form input,.form textarea{width:100%;padding:.8rem .9rem;border-radius:10px;border:1px solid #dfe3eb;background:#fff}
-    .form input:focus,.form textarea:focus{box-shadow:0 0 0 3px rgba(108,162,234,.25)}
-    .form-actions{display:flex;align-items:center;gap:1rem;margin-top:.5rem}
-    .status{min-height:1.2rem;color:var(--muted)}
-
-    /* ======= Footer ======= */
-    .site-footer{border-top:1px solid #eaeef6;background:#fff}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.2rem 0}
-    .footer-links{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
-
-    /* ======= Animations: Scroll Reveal & Tilt ======= */
-    .reveal{opacity:0;transform:translateY(6px)}
-    .reveal-up{opacity:0;transform:translateY(14px)}
-    .fade{opacity:0}
-    .reveal.is-visible,.reveal-up.is-visible,.fade.is-visible{opacity:1;transform:none;transition:opacity .65s ease, transform .65s ease}
-    .delay-1.is-visible{transition-delay:.08s}.delay-2.is-visible{transition-delay:.16s}
-
-    .tilt{transform-style:preserve-3d;transition:transform .2s ease, box-shadow .2s ease}
-    .tilt:hover{transform:perspective(800px) rotateX(2.2deg) rotateY(-2.2deg) translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.12)}
-
-    /* ======= Motion prefs ======= */
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none !important;transition:none !important}
-      .tilt:hover{transform:none;box-shadow:var(--shadow-md)}
-    }
-
-    /* ======= Demo-only badge ======= */
-    .demo-badge{position:fixed;right:10px;bottom:10px;background:#111;color:#fff;padding:.35rem .6rem;border-radius:8px;font-size:.8rem;opacity:.75}
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
     <nav class="navbar container">
-      <a class="brand" href="#" aria-label="Angel Advocacy Home">
-        <!-- Inline logo.svg -->
-        <svg width="28" height="28" viewBox="0 0 256 256" aria-hidden="true">
-          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#6CA2EA"/><stop offset="1" stop-color="#FFDD57"/>
-          </linearGradient></defs>
-          <path d="M128 20l78 28v58c0 58-35 100-78 110-43-10-78-52-78-110V48l78-28z" fill="url(#g)"/>
-          <ellipse cx="128" cy="52" rx="58" ry="14" fill="white" opacity=".9"/>
-          <ellipse cx="128" cy="52" rx="50" ry="10" fill="url(#g)" opacity=".85"/>
-          <path d="M128 88l-36 80h18l6-14h24l6 14h18l-36-80zm4 46h-8l8-20 8 20h-8z" fill="#2B3A55"/>
-        </svg>
+      <a class="brand" href="index.html" aria-label="Angel Advocacy Home">
+        <img class="logo" src="assets/logo.svg" alt="" width="36" height="36" />
         <span>Angel Advocacy</span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
@@ -159,8 +27,8 @@
       <ul id="primary-nav" class="nav-links">
         <li><a href="#about" data-underline>About</a></li>
         <li><a href="#services" data-underline>Services</a></li>
+        <li><a href="donate.html" class="btn btn--small">Donate</a></li>
         <li><a href="#contact" data-underline>Contact</a></li>
-        <li><a href="#" class="btn btn--small btn--primary">Donate</a></li>
       </ul>
     </nav>
   </header>
@@ -173,9 +41,11 @@
     </div>
     <div class="container hero-content">
       <h1 class="display reveal-up">Standing Up for What’s Right</h1>
-      <p class="lead reveal fade">We provide legal advocacy, public awareness, and compassionate support so every voice is heard.</p>
+      <p class="lead reveal fade">
+        We provide legal advocacy, public awareness, and compassionate support so every voice is heard.
+      </p>
       <div class="hero-cta reveal">
-        <a href="#" class="btn btn--primary">Donate Now</a>
+        <a href="donate.html" class="btn btn--primary">Donate Now</a>
         <a href="#about" class="btn btn--ghost">Learn More</a>
       </div>
       <ul class="trust-badges reveal fade">
@@ -191,8 +61,13 @@
       <div class="grid-2">
         <div class="reveal-up">
           <h2>About Us</h2>
-          <p>Angel Advocacy Association is a non‑profit dedicated to defending the rights of individuals and communities through legal advocacy, public awareness, and compassionate support.</p>
-          <p>We partner with local organizations, volunteers, and pro‑bono counsel to expand access to justice.</p>
+          <p>
+            Angel Advocacy Association is a non‑profit dedicated to defending the rights of individuals
+            and communities through legal advocacy, public awareness, and compassionate support.
+          </p>
+          <p>
+            We partner with local organizations, volunteers, and pro‑bono counsel to expand access to justice.
+          </p>
         </div>
         <div class="card media tilt reveal">
           <h3>Impact Snapshot</h3>
@@ -212,17 +87,17 @@
           <article class="card service tilt reveal-up">
             <h3>Legal Support</h3>
             <p>Free or low‑cost assistance, referrals, and case navigation.</p>
-            <a href="#" class="link-arrow">Support this work →</a>
+            <a href="donate.html" class="link-arrow">Support this work →</a>
           </article>
           <article class="card service tilt reveal-up delay-1">
             <h3>Community Outreach</h3>
             <p>Events, workshops, and awareness campaigns across neighborhoods.</p>
-            <a href="#" class="link-arrow">Help us reach more →</a>
+            <a href="donate.html" class="link-arrow">Help us reach more →</a>
           </article>
           <article class="card service tilt reveal-up delay-2">
             <h3>Advocacy Training</h3>
             <p>Equip people with tools to stand up for their rights.</p>
-            <a href="#" class="link-arrow">Fund training →</a>
+            <a href="donate.html" class="link-arrow">Fund training →</a>
           </article>
         </div>
       </div>
@@ -233,17 +108,17 @@
       <form id="contactForm" class="form card reveal-up" novalidate>
         <div class="grid-2">
           <label>First Name
-            <input type="text" name="firstName" autocomplete="given-name" required />
+            <input type="text" id="name" name="firstName" autocomplete="given-name" required />
           </label>
           <label>Last Name
             <input type="text" name="lastName" autocomplete="family-name" required />
           </label>
         </div>
         <label>Email
-          <input type="email" name="email" autocomplete="email" required />
+          <input type="email" id="email" name="email" autocomplete="email" required />
         </label>
         <label>Your Message
-          <textarea name="message" rows="5" required></textarea>
+          <textarea id="message" name="message" rows="5" required></textarea>
         </label>
         <div class="form-actions">
           <button type="submit" class="btn btn--primary">Send Message</button>
@@ -255,71 +130,19 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <a class="brand" href="#">
-        <svg width="22" height="22" viewBox="0 0 256 256" aria-hidden="true">
-          <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#6CA2EA"/><stop offset="1" stop-color="#FFDD57"/>
-          </linearGradient></defs>
-          <path d="M128 20l78 28v58c0 58-35 100-78 110-43-10-78-52-78-110V48l78-28z" fill="url(#g2)"/>
-          <ellipse cx="128" cy="52" rx="58" ry="14" fill="white" opacity=".9"/>
-          <ellipse cx="128" cy="52" rx="50" ry="10" fill="url(#g2)" opacity=".85"/>
-          <path d="M128 88l-36 80h18l6-14h24l6 14h18l-36-80zm4 46h-8l8-20 8 20h-8z" fill="#2B3A55"/>
-        </svg>
+      <a class="brand" href="index.html">
+        <img class="logo" src="assets/logo.svg" alt="" width="28" height="28" />
         <span>Angel Advocacy</span>
       </a>
-      <p>© 2025 Angel Advocacy Association</p>
+      <p>© 2025 Angel Advocacy Association • All rights reserved</p>
       <ul class="footer-links">
+        <li><a href="donate.html" data-underline>Donate</a></li>
         <li><a href="#services" data-underline>Services</a></li>
-        <li><a href="#" data-underline>Donate</a></li>
         <li><a href="#contact" data-underline>Contact</a></li>
       </ul>
     </div>
   </footer>
 
-  <div class="demo-badge">Preview</div>
-
-  <script>
-    // Tiny helper
-    const $ = (s, c=document) => c.querySelector(s);
-    const $$ = (s, c=document) => Array.from(c.querySelectorAll(s));
-
-    // Mobile nav
-    const toggle = $('.nav-toggle'); const nav = $('#primary-nav');
-    if (toggle && nav){
-      toggle.addEventListener('click', ()=>{
-        const open = nav.getAttribute('data-open') === 'true';
-        nav.setAttribute('data-open', String(!open));
-        toggle.setAttribute('aria-expanded', String(!open));
-      });
-    }
-
-    // Scroll reveal
-    const observables = $$('.reveal, .reveal-up, .fade');
-    if ('IntersectionObserver' in window && observables.length){
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting){
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: .12 });
-      observables.forEach(el => io.observe(el));
-    } else {
-      observables.forEach(el => el.classList.add('is-visible'));
-    }
-
-    // Contact form demo UX
-    const form = $('#contactForm'); const status = $('#formStatus');
-    if (form){
-      form.addEventListener('submit', (e)=>{
-        e.preventDefault();
-        const fd = new FormData(form);
-        const valid = ['firstName','lastName','email','message'].every(k => String(fd.get(k)||'').trim());
-        if(!valid){ status.textContent = '❗ Please fill in all fields.'; status.style.color='crimson'; return; }
-        status.textContent = '✅ Thank you! Your message has been sent.'; status.style.color='green'; form.reset();
-      });
-    }
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
